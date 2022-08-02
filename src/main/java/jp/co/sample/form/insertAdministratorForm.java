@@ -1,13 +1,6 @@
 package jp.co.sample.form;
 
-
-/**
- * @author kusakashiori
- *入力フォームからの値を受け取るform
- */
-
-
-public class insertAdministratorForm {
+public class InsertAdministratorForm {
 	private String name;
 	private String mailAddress;
 	private String password;
@@ -31,7 +24,7 @@ public class insertAdministratorForm {
 	}
 	@Override
 	public String toString() {
-		return "insertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
+		return "InsertAdministratorForm [name=" + name + ", mailAddress=" + mailAddress + ", password=" + password
 				+ "]";
 	}
 	
