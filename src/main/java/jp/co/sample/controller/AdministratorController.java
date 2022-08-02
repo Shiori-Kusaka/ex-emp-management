@@ -25,14 +25,9 @@ public class AdministratorController {
 	@Autowired
 	private AdministratorService service;
 	
-	@ModelAttribute
-	public InsertAdministratorForm setUpInsertAdministratorForm(InsertAdministratorForm insertAdministratorForm, Model model) {
-		model.addAttribute("insertAdministratorForm", insertAdministratorForm);
-		return insertAdministratorForm;
-	}
 	
 	@RequestMapping("/toInsert")
-	public String toInsert() {
+	public String toInsert(InsertAdministratorForm insertAdministratorForm) {
 		return "administrator/insert";
 	}
 	
