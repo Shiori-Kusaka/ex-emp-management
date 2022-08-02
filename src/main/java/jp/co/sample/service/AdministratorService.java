@@ -21,5 +21,13 @@ public class AdministratorService {
 	public void insert(Administrator administrator) {
 		repository.insert(administrator);
 	}
+	
+	/**
+	 * @author kusakashiori
+	 *ログイン処理をするサービス
+	 */
+	public Administrator login(String mailAddress, String password) {
+		return repository.findByMailAddressAndPassword(mailAddress, password);
+	}
 
 }
