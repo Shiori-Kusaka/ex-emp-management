@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import jp.co.sample.domain.Administrator;
 import jp.co.sample.form.InsertAdministratorForm;
 import jp.co.sample.service.AdministratorService;
 
@@ -32,6 +33,22 @@ public class AdministratorController {
 	@RequestMapping("/toInsert")
 	public String toInsert() {
 		return "administrator/insert";
+	}
+	
+	/**
+	 * @author kusakashiori
+	 *管理者情報登録のメソッド
+	 */
+	
+	@RequestMapping("/insert")
+	public String insert(InsertAdministratorForm insertAdministratorForm, Model model) {
+		Administrator administrator = new Administrator();
+		administrator.setName(insertAdministratorForm.getName());
+		administrator.setMailAddress(insertAdministratorForm.getMailAddress());
+		administrator.setPassword(insertAdministratorForm.getPassword());
+		service.insert(administrator);
+		model.addAttribute("administrator", administrator);
+		return "redirect://";
 	}
 	
 	
