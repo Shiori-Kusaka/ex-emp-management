@@ -48,7 +48,7 @@ public class AdministratorController {
 		administrator.setPassword(insertAdministratorForm.getPassword());
 		service.insert(administrator);
 		model.addAttribute("administrator", administrator);
-		return "redirect://";
+		return "redirect:/";
 	}
 	
 	
