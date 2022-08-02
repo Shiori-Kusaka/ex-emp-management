@@ -1,5 +1,10 @@
 package jp.co.sample.domain;
 
+
+/**
+ * @author kusakashiori
+ *管理者情報クラス
+ */
 public class Administrator {
 	private Integer id;
 	private String name;
