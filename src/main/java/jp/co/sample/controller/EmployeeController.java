@@ -36,13 +36,25 @@ public class EmployeeController {
 	}
 	
 	
-	
 	@RequestMapping("/showDetail")
 	public String showDetail(String id, Model model) {
 		Integer intId = Integer.parseInt(id);
 		Employee employee = employeeService.showDetail(intId);
 		model.addAttribute("employee", employee);
 		return "employee/detail";
+	}
+	
+	/**
+	 * @author kusakashiori
+	 *従業員詳細ページで扶養人数を更新
+	 */
+	@RequestMapping("/update")
+	public String update(UpdateEmployeeForm updateEmployeeForm) {
+		String StId = updateEmployeeForm.getId();
+		Integer intId = Integer.parseInt(StId);
+		Employee employee = employeeService.showDetail(intId);
+		employeeService.update(employee);
+		return "employee/showList";
 	}
 
 }
