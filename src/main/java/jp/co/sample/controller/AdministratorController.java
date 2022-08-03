@@ -72,5 +72,15 @@ public class AdministratorController {
 		}
 	}
 	
+	/**
+	 * @author kusakashiori
+	 *ログアウトメソッド
+	 */
+	@RequestMapping("/logout")
+	public String logout() {
+		session.invalidate();
+		return "redirect/";
+	}
+	
 
 }
