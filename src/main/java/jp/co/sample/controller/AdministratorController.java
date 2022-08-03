@@ -5,7 +5,10 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.sample.domain.Administrator;
 import jp.co.sample.form.InsertAdministratorForm;
@@ -41,7 +44,11 @@ public class AdministratorController {
 	 */
 	
 	@RequestMapping("/insert")
-	public String insert(InsertAdministratorForm insertAdministratorForm, Model model) {
+	public String insert(@Validated InsertAdministratorForm insertAdministratorForm, BindingResult result, RedirectAttributes redirectAttributes, Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("insertAdministratorForm", insertAdministratorForm);
+			return toInsert(insertAdministratorForm);
+		}
 		Administrator administrator = new Administrator();
 		administrator.setName(insertAdministratorForm.getName());
 		administrator.setMailAddress(insertAdministratorForm.getMailAddress());
@@ -61,6 +68,7 @@ public class AdministratorController {
 	
 	@RequestMapping("/login")
 	public String login(LoginForm loginForm, Model model) {
+		
 		Administrator administrator = service.login(loginForm.getMailAddress(), loginForm.getPassword());
 		if(administrator == null) {
 			String LoginErrorMessage = "メールアドレスまたはパスワードが不正です";
