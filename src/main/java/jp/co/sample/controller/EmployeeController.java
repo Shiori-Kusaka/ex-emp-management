@@ -25,7 +25,6 @@ public class EmployeeController {
 	public String showList(Model model) {
 	 List<Employee> employeeList = employeeService.showList();
 	 model.addAttribute("employeeList", employeeList);
-	 System.out.println(employeeList);
 	 return "employee/list";
 	}
 
