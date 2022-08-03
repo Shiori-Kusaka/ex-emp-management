@@ -43,7 +43,7 @@
 					<p class="navbar-text navbar-right">
 						<span th:text="${session.administratorName + 'さん'}">山田さん</span>こんにちは！
 						&nbsp;&nbsp;&nbsp; <a href="../administrator/login.html"
-							class="navbar-link">ログアウト</a>
+							class="navbar-link" th:href="@{/logout}">ログアウト</a>
 					</p>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -79,18 +79,6 @@
 							<td><span th:text="${employee.hireDate}">2016/12/1</span></td>
 							<td><span th:text="${employee.dependentsCount}"> 3人</span>人</td>
 						</tr>
-						<!-- <tr>
-							<td><a href="detail.html"> <span>山田太郎</span>
-							</a></td>
-							<td><span>2016/12/1</span></td>
-							<td><span>3人</span></td>
-						</tr>
-						<tr>
-							<td><a href="detail.html"> <span>山田太郎</span>
-							</a></td>
-							<td><span>2016/12/1</span></td>
-							<td><span>3人</span></td>
-						</tr> -->
 					</tbody>
 				</table>
 
