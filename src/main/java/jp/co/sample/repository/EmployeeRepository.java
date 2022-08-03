@@ -1,5 +1,8 @@
 package jp.co.sample.repository;
 
+import java.sql.ResultSet;
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +47,7 @@ public class EmployeeRepository {
 		String sql = "update employees set name=:name, image=:image, gender=:gender, hire_date=:hireDate, mail_address=:mailAddress, zip_code=:zipCode, address=:address, telephone=:telephone, salary=:salary, characteristics=:characteristics, dependents_count=:dependentsCount where id =:id;";
 		SqlParameterSource param = new BeanPropertySqlParameterSource(employee);
 		template.update(sql, param);
+
 	}
 		
 	
