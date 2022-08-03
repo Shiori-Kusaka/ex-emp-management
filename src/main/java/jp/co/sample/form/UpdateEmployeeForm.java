@@ -13,7 +13,7 @@ public class UpdateEmployeeForm {
 	@NotBlank(message = "入力は必須です")
 	@Pattern(regexp = "^[0-9]*$", message ="半角数字で入力してください" )
 	private String dependentsCount;
-	@Pattern(regexp="^[0-9]{3}-^[0-9]{4}$", message = "郵便番号の形式で入力してください(ハイフンあり)")
+	@Pattern(regexp="^[0-9]{3}-[0-9]{4}$", message = "郵便番号の形式で入力してください(ハイフンあり)")
 	private String zipCode;
 	private String address;
 	public String getId() {

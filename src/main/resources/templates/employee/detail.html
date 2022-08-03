@@ -88,34 +88,44 @@
 										<input
 										type="hidden" name="id" th:value="${employee.id}" /> <input type="text"
 										name="dependentsCount" id="dependentsCount"
-										class="form-control" value="3" th:field="*{dependentsCount}" /></td>
+										class="form-control" value="3" th:field="*{dependentsCount}" /> <br>
+										<div th:errors="*{zipCode}" style="color: red">エラー</div>
+										郵便番号: <input type="text"
+										name="zipCode" id="zipCode"
+										class="form-control" value="3" th:field="*{zipCode}" /> <br>
+										<div th:errors="*{address}" style="color: red">エラー</div>
+										住所: <input type="text"
+										name="address" id="address"
+										class="form-control" value="3" th:field="*{address}" />
+										
+										</td>
 									
 								</tr>
-								<tr>
+								<!-- <tr>
 									<th nowrap>郵便番号</th>
 									<td><label class="error-messages"> 変更後の郵便番号を入力してください </label>
 										<label class="control-label" style="color: red"
 										for="address"></label>
 										<div th:errors="*{zipCode}" style="color: red">エラー</div> 
 										<input
-										type="hidden" name="id" th:value="${employee.id}" /> <input type="text"
+										type="hidden" name="id" /> <input type="text"
 										name="dependentsCount" id="zipCode"
 										class="form-control" value="3" th:field="*{zipCode}" /></td>
 					
-								</tr>
+								</tr> -->
 								
-								<tr>
+								<!-- <tr>
 									<th nowrap>住所</th>
 									<td><label class="error-messages"> 変更後の住所を入力してください </label>
 										<label class="control-label" style="color: red"
 										for="address"></label>
 										<div th:errors="*{address}" style="color: red">エラー</div> 
 										<input
-										type="hidden" name="id" th:value="${employee.id}" /> <input type="text"
+										type="hidden" name="id" /> <input type="text"
 										name="dependentsCount" id="address"
 										class="form-control" value="3" th:field="*{address}" /></td>
 					
-								</tr>
+								</tr> -->
 							</table>
 							<button type="submit" class="btn btn-primary">更新</button>
 						</fieldset>

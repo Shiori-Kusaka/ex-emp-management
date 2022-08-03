@@ -60,10 +60,15 @@ public class EmployeeController {
 		}
 		String StId = updateEmployeeForm.getId();
 		String StDepCount = updateEmployeeForm.getDependentsCount();
+		String StAddress = updateEmployeeForm.getAddress();
+
 		Integer intId = Integer.parseInt(StId);
 		Integer intDepCount = Integer.parseInt(StDepCount);
 		Employee employee = employeeService.showDetail(intId);
 		employee.setDependentsCount(intDepCount);
+		
+		employee.setZipCode(updateEmployeeForm.getZipCode());
+		employee.setAddress(StAddress);
 		
 		
 		employeeService.update(employee);
