@@ -1,5 +1,7 @@
 package jp.co.sample.form;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
 /**
  * @author kusakashiori
@@ -8,6 +10,8 @@ package jp.co.sample.form;
 
 public class UpdateEmployeeForm {
 	private String id;
+	@NotBlank(message = "入力は必須です")
+	@Pattern(regexp = "^[0-9]*$", message ="半角数字で入力してください" )
 	private String dependentsCount;
 	public String getId() {
 		return id;

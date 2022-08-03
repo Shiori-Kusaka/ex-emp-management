@@ -5,8 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jp.co.sample.domain.Employee;
 import jp.co.sample.form.UpdateEmployeeForm;
@@ -49,7 +52,12 @@ public class EmployeeController {
 	 *従業員詳細ページで扶養人数を更新
 	 */
 	@RequestMapping("/update")
-	public String update(UpdateEmployeeForm updateEmployeeForm) {
+	public String update(@Validated UpdateEmployeeForm updateEmployeeForm, BindingResult result, RedirectAttributes redirectAttributes,  Model model) {
+		if(result.hasErrors()) {
+			model.addAttribute("updateEmployeeForm", updateEmployeeForm);
+			
+			return showDetail(updateEmployeeForm.getId(), model);
+		}
 		String StId = updateEmployeeForm.getId();
 		String StDepCount = updateEmployeeForm.getDependentsCount();
 		Integer intId = Integer.parseInt(StId);
@@ -59,7 +67,6 @@ public class EmployeeController {
 		
 		
 		employeeService.update(employee);
-		System.out.println(employee);
 		return "redirect:/employee/showList";
 	}
 
