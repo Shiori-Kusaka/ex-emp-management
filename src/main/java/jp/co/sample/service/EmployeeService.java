@@ -23,5 +23,13 @@ public class EmployeeService {
 	public List<Employee> showList() {
 		return employeeRepository.findAll();
 	}
+	
+	/**
+	 * @author kusakashiori
+	 *従業員詳細ページを表示するサービスメソッド
+	 */
+	public Employee showDetail(Integer id) {
+		return employeeRepository.load(id);
+	}
 
 }
