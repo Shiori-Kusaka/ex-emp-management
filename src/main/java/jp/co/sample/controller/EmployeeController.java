@@ -94,7 +94,7 @@ public class EmployeeController {
 		
 		
 		employee.setHireDate(updateEmployeeForm.getHireDate());
-//		employee.setMailAddress(updateEmployeeForm.getMailAddress());
+		employee.setMailAddress(updateEmployeeForm.getMailAddress());
 //		employee.setTelephone(updateEmployeeForm.getTelephone());
 //		
 		//employee.setSalary(intSarary);

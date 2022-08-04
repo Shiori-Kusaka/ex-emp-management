@@ -110,11 +110,14 @@
 									    th:value="${gender.key}" th:text="${gender.value}" th:field="*{gender}"/>
 										</span>  <br>
 									
-									
-										<div th:errors="*{hireDate}" style="color: red">エラー</div>
 										入社日: <input type="date"
 										name="hireDate" id="hireDate"
 										class="form-control" value="1" th:field="*{hireDate}" /> <br>
+										
+										<div th:errors="*{mailAddress}" style="color: red">エラー</div>
+										メールアドレス: <input type="text"
+										name="mailAddress" id="mailAddress"
+										class="form-control" value="1" th:field="*{mailAddress}" /> <br>
 										
 										
 										
