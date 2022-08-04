@@ -119,6 +119,10 @@
 										name="mailAddress" id="mailAddress"
 										class="form-control" value="1" th:field="*{mailAddress}" /> <br>
 										
+										<div th:errors="*{telephone}" style="color: red">エラー</div>
+										電話番号: <input type="text"
+										name="telephone" id="telephone"
+										class="form-control" value="1" th:field="*{telephone}" /> <br>
 										
 										
 										
