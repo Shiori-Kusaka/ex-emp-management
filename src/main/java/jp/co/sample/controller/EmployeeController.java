@@ -75,7 +75,7 @@ public class EmployeeController {
 
 		Integer intId = Integer.parseInt(StId);
 		Integer intDepCount = Integer.parseInt(StDepCount);
-		//Integer intSarary = Integer.parseInt(StSarary);
+		Integer intSarary = Integer.parseInt(StSarary);
 		Employee employee = employeeService.showDetail(intId);
 		employee.setDependentsCount(intDepCount);
 		
@@ -95,9 +95,8 @@ public class EmployeeController {
 		
 		employee.setHireDate(updateEmployeeForm.getHireDate());
 		employee.setMailAddress(updateEmployeeForm.getMailAddress());
-		employee.setTelephone(updateEmployeeForm.getTelephone());
-//		
-		//employee.setSalary(intSarary);
+		employee.setTelephone(updateEmployeeForm.getTelephone());		
+		employee.setSalary(intSarary);
 		//employee.setCharacteristics(updateEmployeeForm.getCharacteristics());
 		
 		employeeService.update(employee);
