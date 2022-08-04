@@ -104,12 +104,11 @@
 										class="form-control" value="山田太郎" th:field="*{name}" /> <br>
 										
 										<div th:errors="*{gender}" style="color: red">エラー</div>
-										性別: <input type="radio"
-										name="gender" id="gender"
-										class="form-control" value="male" th:field="*{gender}"/>
+										性別: 
+										<div th:each="gender: ${genderMap}"></div> 
 										<input type="radio"
 										name="gender" id="gender"
-										class="form-control" value="female" th:field="*{gender}"/> <br>
+										class="form-control" th:value="${gender.key}" th:text="${gender.value}" th:field="*{gender}"/> <br>
 										
 										<div th:errors="*{hireDate}" style="color: red">エラー</div>
 										入社日: <input type="date"

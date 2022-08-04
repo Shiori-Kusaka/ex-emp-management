@@ -1,6 +1,8 @@
 package jp.co.sample.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,6 +63,10 @@ public class EmployeeController {
 		String StId = updateEmployeeForm.getId();
 		String StDepCount = updateEmployeeForm.getDependentsCount();
 		String StAddress = updateEmployeeForm.getAddress();
+		Map<Integer, String> genderMap = new HashMap<>();
+		genderMap.put(1, "男性");
+		genderMap.put(2, "女性");
+		model.addAttribute("genderMap", genderMap);
 
 		Integer intId = Integer.parseInt(StId);
 		Integer intDepCount = Integer.parseInt(StDepCount);
@@ -69,9 +75,16 @@ public class EmployeeController {
 		
 		employee.setZipCode(updateEmployeeForm.getZipCode());
 		employee.setAddress(StAddress);
-		
+		employee.setName(updateEmployeeForm.getName());
+		employee.setGender(updateEmployeeForm.getGender());
+		employee.setHireDate(updateEmployeeForm.getHireDate());
+		employee.setMailAddress(updateEmployeeForm.getMailAddress());
+		employee.setTelephone(updateEmployeeForm.getTelephone());
+		employee.setSalary(updateEmployeeForm.getSalary());
+		employee.setCharacteristics(updateEmployeeForm.getCharacteristics());
 		
 		employeeService.update(employee);
+		System.out.println(employee);
 		return "redirect:/employee/showList";
 	}
 
