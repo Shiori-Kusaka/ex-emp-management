@@ -5,9 +5,6 @@ import java.sql.Date;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
-import org.springframework.validation.annotation.Validated;
 
 /**
  * @author kusakashiori
@@ -33,7 +30,7 @@ public class UpdateEmployeeForm {
 	@Pattern(regexp = "^0[-0-9]{11,12}$", message ="半角数字で入力してください(ハイフンあり)" )
 	private String telephone;
 	@Pattern(regexp = "^[0-9]*$", message ="半角数字で入力してください" )
-	private Integer salary;
+	private String salary;
 	private String characteristics;
 	public String getId() {
 		return id;
@@ -89,10 +86,10 @@ public class UpdateEmployeeForm {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
-	public Integer getSalary() {
+	public String getSalary() {
 		return salary;
 	}
-	public void setSalary(Integer salary) {
+	public void setSalary(String salary) {
 		this.salary = salary;
 	}
 	public String getCharacteristics() {
@@ -108,6 +105,7 @@ public class UpdateEmployeeForm {
 				+ ", mailAddress=" + mailAddress + ", telephone=" + telephone + ", salary=" + salary
 				+ ", characteristics=" + characteristics + "]";
 	}
+	
 	
 	
 	

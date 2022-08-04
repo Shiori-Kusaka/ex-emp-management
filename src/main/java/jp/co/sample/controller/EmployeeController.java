@@ -1,6 +1,7 @@
 package jp.co.sample.controller;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,6 +46,12 @@ public class EmployeeController {
 	public String showDetail(String id, Model model) {
 		Integer intId = Integer.parseInt(id);
 		Employee employee = employeeService.showDetail(intId);
+		
+		Map<Integer, String> genderMap = new LinkedHashMap<>();
+		genderMap.put(1, "男");
+		genderMap.put(2, "女");
+		model.addAttribute("genderMap", genderMap);
+		
 		model.addAttribute("employee", employee);
 		return "employee/detail";
 	}
@@ -63,25 +70,35 @@ public class EmployeeController {
 		String StId = updateEmployeeForm.getId();
 		String StDepCount = updateEmployeeForm.getDependentsCount();
 		String StAddress = updateEmployeeForm.getAddress();
-		Map<Integer, String> genderMap = new HashMap<>();
-		genderMap.put(1, "男性");
-		genderMap.put(2, "女性");
-		model.addAttribute("genderMap", genderMap);
+		String StSarary = updateEmployeeForm.getSalary();
+		
 
 		Integer intId = Integer.parseInt(StId);
 		Integer intDepCount = Integer.parseInt(StDepCount);
+		//Integer intSarary = Integer.parseInt(StSarary);
 		Employee employee = employeeService.showDetail(intId);
 		employee.setDependentsCount(intDepCount);
 		
 		employee.setZipCode(updateEmployeeForm.getZipCode());
 		employee.setAddress(StAddress);
 		employee.setName(updateEmployeeForm.getName());
-		employee.setGender(updateEmployeeForm.getGender());
-		employee.setHireDate(updateEmployeeForm.getHireDate());
-		employee.setMailAddress(updateEmployeeForm.getMailAddress());
-		employee.setTelephone(updateEmployeeForm.getTelephone());
-		employee.setSalary(updateEmployeeForm.getSalary());
-		employee.setCharacteristics(updateEmployeeForm.getCharacteristics());
+		switch (updateEmployeeForm.getGender()) {
+		case "1":
+			employee.setGender("男");
+			break;
+
+		case "2":
+			employee.setGender("女");
+			break;
+		}
+		
+		
+//		employee.setHireDate(updateEmployeeForm.getHireDate());
+//		employee.setMailAddress(updateEmployeeForm.getMailAddress());
+//		employee.setTelephone(updateEmployeeForm.getTelephone());
+//		
+		//employee.setSalary(intSarary);
+		//employee.setCharacteristics(updateEmployeeForm.getCharacteristics());
 		
 		employeeService.update(employee);
 		System.out.println(employee);
