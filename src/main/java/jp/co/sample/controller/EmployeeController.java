@@ -97,10 +97,9 @@ public class EmployeeController {
 		employee.setMailAddress(updateEmployeeForm.getMailAddress());
 		employee.setTelephone(updateEmployeeForm.getTelephone());		
 		employee.setSalary(intSarary);
-		//employee.setCharacteristics(updateEmployeeForm.getCharacteristics());
+		employee.setCharacteristics(updateEmployeeForm.getCharacteristics());
 		
 		employeeService.update(employee);
-		System.out.println(employee);
 		return "redirect:/employee/showList";
 	}
 
