@@ -93,7 +93,7 @@ public class EmployeeController {
 		}
 		
 		
-//		employee.setHireDate(updateEmployeeForm.getHireDate());
+		employee.setHireDate(updateEmployeeForm.getHireDate());
 //		employee.setMailAddress(updateEmployeeForm.getMailAddress());
 //		employee.setTelephone(updateEmployeeForm.getTelephone());
 //		
