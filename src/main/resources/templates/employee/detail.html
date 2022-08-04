@@ -98,6 +98,40 @@
 										name="address" id="address"
 										class="form-control" value="3" th:field="*{address}" />
 										
+										<div th:errors="*{name}" style="color: red">エラー</div>
+										名前: <input type="text"
+										name="name" id="name"
+										class="form-control" value="山田太郎" th:field="*{name}" /> <br>
+										
+										<div th:errors="*{gender}" style="color: red">エラー</div>
+										性別: <input type="radio"
+										name="gender" id="gender"
+										class="form-control" value="male" th:field="*{gender}"/>
+										<input type="radio"
+										name="gender" id="gender"
+										class="form-control" value="female" th:field="*{gender}"/> <br>
+										
+										<div th:errors="*{hireDate}" style="color: red">エラー</div>
+										入社日: <input type="date"
+										name="hireDate" id="hireDate"
+										class="form-control" value="1" th:field="*{hireDate}" /> <br>
+										
+										<div th:errors="*{mailAddress}" style="color: red">エラー</div>
+										メールアドレス: <input type="text"
+										name="mailAddress" id="mailAddress"
+										class="form-control" value="1" th:field="*{mailAddress}" /> <br>
+										
+										<div th:errors="*{telephone}" style="color: red">エラー</div>
+										電話番号: <input type="text"
+										name="telephone" id="telephone"
+										class="form-control" value="1" th:field="*{telephone}" /> <br>
+										
+										<div th:errors="*{salary}" style="color: red">エラー</div>
+										給料: <input type="text"
+										name="salary" id="salary"
+										class="form-control" value="1" th:field="*{salary}" /> <br>
+										
+										<textarea rows="3" cols="30" name="characteristics" id="characteristics" class="form-control" th:field="*{characteristics}"></textarea>
 										</td>
 									
 								</tr>

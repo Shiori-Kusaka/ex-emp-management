@@ -30,7 +30,7 @@ public class UpdateEmployeeForm {
 	private Date hireDate;
 	@Email(message = "Eメールの形式が不正です")
 	private String mailAddress;
-	@Pattern(regexp = "^[0-9]*$", message ="半角数字で入力してください" )
+	@Pattern(regexp = "^0[-0-9]{11,12}$", message ="半角数字で入力してください(ハイフンあり)" )
 	private String telephone;
 	@Pattern(regexp = "^[0-9]*$", message ="半角数字で入力してください" )
 	private Integer salary;
